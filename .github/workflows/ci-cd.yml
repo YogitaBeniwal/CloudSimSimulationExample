@@ -30,4 +30,4 @@ jobs:
       run: mvn clean install && mvn clean package
 
     - name: Run Simulation
-      run: mvn exec:java -pl modules/cloudsim-examples/ -Dexec.mainClass=org.cloudbus.cloudsim.examples.CloudSimSimulation
+      run: mvn exec:java -Dexec.mainClass="org.cloudsimplus.examples.CloudSimSimulation"
