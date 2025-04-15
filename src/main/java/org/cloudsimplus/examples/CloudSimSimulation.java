@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 public class CloudSimSimulation {
 
     private static final int HOSTS = 2;
-    private static final int VMS = 4;
-    private static final int CLOUDLETS = 10;
+    private static final int VMS = 2;
+    private static final int CLOUDLETS = 5;
 
     private static List<Host> hostList;
 
@@ -74,7 +74,7 @@ public class CloudSimSimulation {
             if (i == 1) {
                 simulation.addOnClockTickListener(evt -> {
                     if (evt.getTime() == 10) {
-                        System.out.println("\n⚠️ Host 1 fails at time 10");
+                        System.out.println("\nHost 1 fails at time 10");
 
                         // Disable the host
                         host.setActive(false);
@@ -92,10 +92,10 @@ public class CloudSimSimulation {
                                     .orElse(null);
 
                             if (targetHost != null) {
-                                System.out.printf("➡️ Migrating VM %d to Host %d\n", vm.getId(), hostList.indexOf(targetHost));
+                                System.out.printf("Migrating VM %d to Host %d\n", vm.getId(), hostList.indexOf(targetHost));
                                 targetHost.createVm(vm);
                             } else {
-                                System.out.printf("❌ No active host available to migrate VM %d\n", vm.getId());
+                                System.out.printf("No active host available to migrate VM %d\n", vm.getId());
                             }
                         }
 
